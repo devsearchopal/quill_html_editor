@@ -30,7 +30,7 @@ abstract class WebViewXController<T> {
 
   /// Set webview content to the specified `content`.
   /// Example: https://flutter.dev/
-  /// Example2: '<html><head></head> <body> <p> Hi </p> </body></html>
+  /// Example2: `'<html><head></head> <body> <p> Hi </p> </body></html>'`
   ///
   /// If `fromAssets` param is set to true,
   /// `content` param must be a String path to an asset

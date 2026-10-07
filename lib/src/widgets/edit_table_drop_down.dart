@@ -8,13 +8,13 @@ import 'el_tooltip/el_tooltip.dart';
 class EditTableDropDown extends StatefulWidget {
   /// [EditTableDropDown] constructor to edit the table, add remove columns rows etc.
   const EditTableDropDown({
-    Key? key,
+    super.key,
     required this.dropDownColor,
     required this.iconColor,
     required this.iconSize,
     required this.padding,
     required this.onOptionSelected,
-  }) : super(key: key);
+  });
 
   ///[dropDownColor] to define the dropdown background color
   final Color dropDownColor;

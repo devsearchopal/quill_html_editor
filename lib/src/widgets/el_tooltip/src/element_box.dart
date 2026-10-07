@@ -1,5 +1,4 @@
 /// ElementBox class is used to represent an element's offset information.
-
 class ElementBox {
   /// The width of the element.
   final double w;

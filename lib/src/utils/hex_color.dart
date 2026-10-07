@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     if (!isValidHex(hexColor)) {
-      return Colors.transparent.value;
+      return Colors.transparent.toARGB32();
     }
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
@@ -25,7 +25,12 @@ class HexColor extends Color {
   ////[getRGBA] method to get the list of RGBA code
 
   List<int> getRGBA(Color c) {
-    return [c.red, c.blue, c.green, c.alpha];
+    return [
+      (c.r * 255.0).round().clamp(0, 255),
+      (c.b * 255.0).round().clamp(0, 255),
+      (c.g * 255.0).round().clamp(0, 255),
+      (c.a * 255.0).round().clamp(0, 255),
+    ];
   }
 }
 
@@ -33,7 +38,7 @@ class HexColor extends Color {
 extension ToHex on Color {
   ///[toHex] extension method to convert Color to hex code
   String toHex() =>
-      '#${(value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase()}';
+      '#${(toARGB32() & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase()}';
 }
 
 ///[ToRGBA] extension method to convert Color to RGBA
@@ -42,11 +47,15 @@ extension ToRGBA on Color {
   String toRGBA() {
     String rgba = '';
     try {
+      final r = (this.r * 255.0).round().clamp(0, 255);
+      final g = (this.g * 255.0).round().clamp(0, 255);
+      final b = (this.b * 255.0).round().clamp(0, 255);
+      final a = double.parse(this.a.toStringAsFixed(1));
       rgba = 'rgba(${[
-        red,
-        green,
-        blue,
-        double.parse(opacity.toStringAsFixed(1))
+        r,
+        g,
+        b,
+        a,
       ].join(',')})';
     } catch (e) {
       rgba = 'rgba(0,0,0,0)';

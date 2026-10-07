@@ -101,7 +101,7 @@ class WebViewX extends StatelessWidget implements view_interface.WebViewX {
 
   /// Constructor
   const WebViewX({
-    Key? key,
+    super.key,
     this.initialContent = 'about:blank',
     this.initialSourceType = SourceType.url,
     this.userAgent,
@@ -120,7 +120,7 @@ class WebViewX extends StatelessWidget implements view_interface.WebViewX {
     this.onWebResourceError,
     this.webSpecificParams = const WebSpecificParams(),
     this.mobileSpecificParams = const MobileSpecificParams(),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

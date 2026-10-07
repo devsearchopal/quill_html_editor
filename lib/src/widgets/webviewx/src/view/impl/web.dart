@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
-// ignore: avoid_web_libraries_in_flutter
+// Legacy web libraries used by vendored webviewx; required for dart2js/ddc iframe handling.
+// ignore: avoid_web_libraries_in_flutter, deprecated_member_use
 import 'dart:html' as html;
-// ignore: avoid_web_libraries_in_flutter
+// ignore: avoid_web_libraries_in_flutter, deprecated_member_use
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
@@ -114,7 +115,7 @@ class WebViewX extends StatefulWidget implements view_interface.WebViewX {
 
   /// Constructor
   const WebViewX({
-    Key? key,
+    super.key,
     this.initialContent = 'about:blank',
     this.initialSourceType = SourceType.url,
     this.userAgent,
@@ -133,7 +134,7 @@ class WebViewX extends StatefulWidget implements view_interface.WebViewX {
     this.onWebResourceError,
     this.webSpecificParams = const WebSpecificParams(),
     this.mobileSpecificParams = const MobileSpecificParams(),
-  }) : super(key: key);
+  });
 
   @override
   State<WebViewX> createState() => _WebViewXState();
@@ -554,7 +555,7 @@ class _WebViewXState extends State<WebViewX> {
       _debugLog('Using proxy: ${proxy.runtimeType}');
 
       try {
-        return proxy.fetchPageSource(
+        return await proxy.fetchPageSource(
           method: method,
           url: url,
           headers: headers,

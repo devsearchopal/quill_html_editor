@@ -1,7 +1,6 @@
 /// The [ElTooltipPosition] enum is used to specify the desired position of the tooltip
 ///
 /// The tooltips can be displayed in the following positions:
-
 enum ElTooltipPosition {
   ///  [topStart]  Positioned at the top-left corner of the target element.
   topStart,

@@ -128,8 +128,7 @@ class _CellSelectionWidget extends SingleChildRenderObjectWidget {
   final int index;
 
   const _CellSelectionWidget(
-      {required Widget child, required this.index, Key? key})
-      : super(child: child, key: key);
+      {required Widget super.child, required this.index});
 
   @override
   _CellBox createRenderObject(BuildContext context) {

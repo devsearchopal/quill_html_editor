@@ -1,3 +1,14 @@
+### 2.2.9
+
+- Upgraded compatibility to Flutter 3.47.6 and Dart 3.13.5 (Dart SDK constraint `>=3.0.0 <4.0.0`, Flutter `>=3.27.0`)
+- Migrated deprecated Color APIs (`.value`, `.red`, `.green`, `.blue`, `.alpha`, `.opacity`, `.withOpacity`) to modern Color component and wide-gamut APIs (`.toARGB32()`, `.r`, `.g`, `.b`, `.a`, `.withValues()`)
+- Added missing `await` to unawaited Future inside try-catch block in webviewx proxy handling
+- Fixed `use_build_context_synchronously` across asynchronous gaps with `context.mounted` checks
+- Removed invalid federated plugin configuration from pubspec.yaml that caused platform resolution warnings
+- Upgraded `file_picker` to `8.3.7` and `flutter_lints` to `5.0.0`
+- Added comprehensive unit and widget tests in `test/`
+- Upgraded example project to support Dart 3+
+
 ### 2.2.8
 
 - Updated all dependencies to their latest versions

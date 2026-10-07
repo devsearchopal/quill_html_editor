@@ -83,15 +83,15 @@ class _InputUrlWidgetState extends State<InputUrlWidget> {
     } else {
       return InkWell(
         onTap: () async {
-          await widget.controller.getSelectionRange().then((selectionModel) {
-            showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                builder: (context) {
-                  return _getTextFieldBytType(false, onDoneLastClicked,
-                      onCloseLastClicked, selectionModel, context);
-                });
-          });
+          final selectionModel = await widget.controller.getSelectionRange();
+          if (!context.mounted) return;
+          showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              builder: (context) {
+                return _getTextFieldBytType(false, onDoneLastClicked,
+                    onCloseLastClicked, selectionModel, context);
+              });
         },
         child: widget.iconWidget,
       );
@@ -169,6 +169,7 @@ class _InputUrlWidgetState extends State<InputUrlWidget> {
                             if (isToolTip) {
                               _toolTipKey.currentState!.hideOverlay();
                             } else {
+                              if (!context.mounted) return;
                               Navigator.pop(context);
                             }
                           });

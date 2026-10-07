@@ -1,5 +1,6 @@
 import 'dart:async' show Future;
-// ignore: avoid_web_libraries_in_flutter
+// Legacy web libraries used by vendored webviewx; required for dart2js/ddc iframe handling.
+// ignore: avoid_web_libraries_in_flutter, deprecated_member_use
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class WebViewXController extends ChangeNotifier
 
   /// Set webview content to the specified `content`.
   /// Example: https://flutter.dev/
-  /// Example2: '<html><head></head> <body> <p> Hi </p> </body></html>
+  /// Example2: `'<html><head></head> <body> <p> Hi </p> </body></html>'`
   ///
   /// If `fromAssets` param is set to true,
   /// `content` param must be a String path to an asset

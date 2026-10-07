@@ -1,4 +1,4 @@
-library el_tooltip;
+library;
 
 import 'package:flutter/material.dart';
 import 'package:quill_html_editor/src/widgets/webviewx/src/webviewx_plus.dart';
